@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container" style="padding: 50px;">
+    {% if user.is_authenticated %}
+    <h2 class="text-center">Automate The Boring Stuff With Django</h2>
+    <div class="row pt-5">
+        <!-- Import data -->
+        <div class="col-md-4">
+            <a href="{% url 'import_data' %}" class="text-decoration-none text-dark">
+                <div class="card alert-primary shadow">
+                    <div class="card-header">
+                    <h4>Import Data</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Imports data from CSV file to any table.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- Export Data -->
+        <div class="col-md-4">
+            <a href="{% url 'export_data' %}" class="text-decoration-none text-dark">
+                <div class="card alert-success shadow">
+                    <div class="card-header">
+                    <h4>Export Data</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Exports data from a specific table to a CSV file.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Bulk Emails -->
+        <div class="col-md-4">
+            <a href="{% url 'send_email' %}" class="text-decoration-none text-dark">
+                <div class="card alert-danger shadow">
+                    <div class="card-header">
+                    <h4>Bulk Emails</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Sends bulk emails to users</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row pt-5">
+        <!-- Email Tracking -->
+        <div class="col-md-4">
+            <a href="{% url 'track_dashboard' %}" class="text-decoration-none text-dark">
+                <div class="card alert-warning shadow">
+                    <div class="card-header">
+                    <h4>Email Tracking</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Tracks emails and shows open and click rate</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+     <!-- Compress Images -->
+        <div class="col-md-4">
+            <a href="{% url 'compress' %}" class="text-decoration-none text-dark">
+                <div class="card alert-danger shadow">
+                    <div class="card-header">
+                    <h4>Compress Images</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Compresses Image files and reduces the size</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+     <!-- Web Scraping -->
+        <div class="col-md-4">
+            <a href="{% url 'stocks' %}" class="text-decoration-none text-dark">
+                <div class="card alert-warning shadow">
+                    <div class="card-header">
+                    <h4>Stock Market Analysis</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Stock Market Analysis - Web Scraping</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% else %}
+    <div class="home-info">
+        <h2 class="text-center">Automation With Django</h2>
+        <p class="lead text-center text-muted">
+            "Automate with Django" is a project-based course to build various tools using the Django framework to automate routine tasks, ranging from data processing to scheduling, and more. 
+            By leveraging Django's capabilities, users can streamline their workflows, saving time and enhancing productivity.
+        </p>
+
+        <div style="display: flex; justify-content: center;">
+            <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+            &nbsp;<a href="{% url 'register' %}" class="btn btn-success">Register</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
